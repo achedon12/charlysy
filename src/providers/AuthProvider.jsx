@@ -16,6 +16,22 @@ const AuthProvider = ({children}) => {
     }, []);
 
     const login = async (email, password) => {
+        if (email !== 'admin@gmail.com' && password !== 'admin') {
+            throw new Error(JSON.stringify({
+                status: 'error',
+                message: 'Invalid email or password',
+                code: 401
+            }));
+        }
+        handleStoreData({
+            token: 'fake-jwt-token',
+            user: {
+                id: 1,
+                firstname: 'Admin',
+                lastname: 'User',
+            }
+        })
+        return
         const response = await fetch(`${apiConfig.apiUrl}/auth/login`, {
             method: 'POST',
             headers: apiConfig.getHeaders(),

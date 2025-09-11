@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Index from "@/views/Index.jsx";
 import About from "@/views/about/About.jsx";
 import Events from "@/views/events/Events.jsx";
@@ -6,9 +6,10 @@ import Contact from "@/views/contact/Contact.jsx";
 import '@/App.css';
 import Poems from "@/views/poems/Poems.jsx";
 import Layout from "@/views/Layout.jsx";
+import AdminLayout from "@/views/admin/Layout.jsx";
 import Login from "@/views/login/Login.jsx";
 import ProtectedRoute from "@/components/routes/ProtectedRoute.jsx";
-import Admin from "@/views/admin/Admin.jsx";
+import Dashboard from "@/views/admin/Dashboard.jsx";
 import AuthProvider from "@/providers/AuthProvider.jsx";
 import error404 from "@/views/errors/error404.jsx";
 
@@ -26,8 +27,9 @@ const App = () => {
                             <Route path="events" element={<Events/>}/>
                             <Route path="contact" element={<Contact/>}/>
 
-                            <Route path="admin" element={<ProtectedRoute />}>
-                                <Route path="" element={<Admin />}/>
+                            <Route path="admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+                                <Route index element={<Navigate to="dashboard" replace />} />
+                                <Route path="dashboard" element={<Dashboard />} />
                             </Route>
 
                             <Route path="*" element={<error404 />}/>
