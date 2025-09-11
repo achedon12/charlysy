@@ -1,16 +1,16 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Index from "./views/index.jsx";
-import About from "./views/about/About.jsx";
-import Events from "./views/events/Events.jsx";
-import Contact from "./views/contact/Contact.jsx";
-import './App.css';
-import Poems from "./views/poems/Poems.jsx";
-import Layout from "./views/Layout.jsx";
-import Login from "./views/login/Login.jsx";
-import ProtectedRoute from "./components/routes/ProtectedRoute.jsx";
-import Admin from "./views/admin/Admin.jsx";
-import AuthProvider from "./providers/AuthProvider.jsx";
-import error404 from "./views/errors/error404.jsx";
+import Index from "@/views/index.jsx";
+import About from "@/views/about/About.jsx";
+import Events from "@/views/events/Events.jsx";
+import Contact from "@/views/contact/Contact.jsx";
+import '@/App.css';
+import Poems from "@/views/poems/Poems.jsx";
+import Layout from "@/views/Layout.jsx";
+import Login from "@/views/login/Login.jsx";
+import ProtectedRoute from "@/components/routes/ProtectedRoute.jsx";
+import Admin from "@/views/admin/Admin.jsx";
+import AuthProvider from "@/providers/AuthProvider.jsx";
+import error404 from "@/views/errors/error404.jsx";
 
 const App = () => {
     return (

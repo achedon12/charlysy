@@ -27,7 +27,7 @@ const Header = () => {
                         {['home', 'poems', 'events', 'about', 'contact'].map((item) => (
                             <Link
                                 key={item}
-                                to={item === 'home' ? '/' : `/${item}`}
+                                to={`${import.meta.env.VITE_REACT_APP_BASE_URL}${item === 'home' ? '/' : `/${item}`}`}
                                 className={`uppercase text-sm tracking-wider hover:text-cyan-400 transition-all ${
                                     activeSection === item ? 'text-cyan-400 border-b-2 border-cyan-400' : ''
                                 }`}
@@ -44,7 +44,7 @@ const Header = () => {
                         />
                         <Link
                             className="flex items-center space-x-2 bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md transition-all"
-                            to="/login">
+                            to={`${import.meta.env.VITE_REACT_APP_BASE_URL}login`}>
                             <FaUser />
                             Se connecter
                         </Link>

@@ -6,7 +6,6 @@ const Poems = () => {
     const [selectedPoem, setSelectedPoem] = useState(null);
     const [activeCategory, setActiveCategory] = useState('all');
 
-    // Données de poèmes AfroFuturistes
     const poems = [
         {
             id: 1,
@@ -154,7 +153,6 @@ Mon cloud préserve nos récits investis.`,
         ? poems
         : poems.filter(poem => poem.category === activeCategory);
 
-    // Effet pour les animations de particules
     useEffect(() => {
         const createParticle = () => {
             const particleContainer = document.querySelector('.particle-container');
@@ -187,10 +185,8 @@ Mon cloud préserve nos récits investis.`,
 
     return (
         <div className="min-h-screen bg-black text-white overflow-x-hidden pt-20">
-            {/* Container pour les particules animées */}
             <div className="particle-container fixed inset-0 pointer-events-none z-0"></div>
 
-            {/* Hero Section */}
             <section className="relative py-16 px-4">
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                     <div className="ring-container">
@@ -212,7 +208,6 @@ Mon cloud préserve nos récits investis.`,
                     </p>
                 </div>
 
-                {/* Élément décoratif flottant */}
                 <div className="absolute bottom-10 left-10 z-10 floating-element">
                     <div className="w-4 h-4 bg-cyan-400 rounded-full"></div>
                     <div className="w-2 h-2 bg-purple-500 rounded-full ml-6 mt-2"></div>
@@ -224,7 +219,6 @@ Mon cloud préserve nos récits investis.`,
                 </div>
             </section>
 
-            {/* Filtres */}
             <section className="py-8 px-4 relative z-10 bg-gray-900 bg-opacity-50">
                 <div className="container mx-auto max-w-6xl">
                     <div className="flex flex-wrap justify-center gap-3">
@@ -245,7 +239,6 @@ Mon cloud préserve nos récits investis.`,
                 </div>
             </section>
 
-            {/* Liste des poèmes */}
             <section className="py-12 px-4 relative z-10">
                 <div className="container mx-auto max-w-6xl">
                     {filteredPoems.length === 0 ? (
@@ -269,9 +262,9 @@ Mon cloud préserve nos récits investis.`,
                               poem.category === 'tech' ? 'bg-cyan-500' :
                                   poem.category === 'city' ? 'bg-purple-500' :
                                       'bg-pink-500'
-                      }`}>
-                        {categories.find(c => c.id === poem.category)?.label}
-                      </span>
+                                      }`}>
+                                        {categories.find(c => c.id === poem.category)?.label}
+                                      </span>
                                             <span className="text-xs text-gray-400">{formatDate(poem.date)}</span>
                                         </div>
 
@@ -286,8 +279,8 @@ Mon cloud préserve nos récits investis.`,
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {poem.tags.map((tag, index) => (
                                                 <span key={index} className="px-2 py-1 bg-gray-800 rounded-full text-xs text-gray-400">
-                          #{tag}
-                        </span>
+                                                  #{tag}
+                                                </span>
                                             ))}
                                         </div>
 

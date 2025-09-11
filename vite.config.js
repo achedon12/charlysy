@@ -9,6 +9,11 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: env.VITE_REACT_APP_BASE_URL || '/',
+    resolve: {
+      alias: {
+        '@': '/src'
+      }
+    },
     plugins: [react(), tailwindcss()],
     optimizeDeps: {
       esbuildOptions: {
