@@ -15,12 +15,13 @@ export default defineConfig(({ mode }) => {
       }
     },
     plugins: [react(), tailwindcss()],
-    optimizeDeps: {
+/*    optimizeDeps: {
+      include: ['react-world-flags'],
       esbuildOptions: {
         loader: {
           '.js': 'jsx'
         },
       }
-    }
+    }*/
   }
 })

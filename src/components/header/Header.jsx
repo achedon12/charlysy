@@ -27,7 +27,7 @@ const Header = () => {
                         {['home', 'poems', 'events', 'about', 'contact'].map((item) => (
                             <Link
                                 key={item}
-                                to={`${import.meta.env.VITE_REACT_APP_BASE_URL}${item === 'home' ? '/' : `/${item}`}`}
+                                to={`${import.meta.env.VITE_REACT_APP_BASE_URL}${item === 'home' ? '' : `${item}`}`}
                                 className={`uppercase text-sm tracking-wider hover:text-cyan-400 transition-all ${
                                     activeSection === item ? 'text-cyan-400 border-b-2 border-cyan-400' : ''
                                 }`}

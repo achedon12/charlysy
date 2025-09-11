@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Index from "@/views/index.jsx";
+import Index from "@/views/Index.jsx";
 import About from "@/views/about/About.jsx";
 import Events from "@/views/events/Events.jsx";
 import Contact from "@/views/contact/Contact.jsx";

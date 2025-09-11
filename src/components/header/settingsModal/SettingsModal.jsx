@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { AvailableLanguages } from "../../../utils/i18n.js";
 import { useTranslation } from "react-i18next";
 import Modal from "../../modal/Modal.jsx";
-import Flag from "react-world-flags/src/Flag.js";
+import ReactCountryFlag from "react-country-flag";
 
 const SettingsModal = ({ isOpen, onClose }) => {
     const { i18n } = useTranslation();
@@ -42,7 +42,7 @@ const SettingsModal = ({ isOpen, onClose }) => {
                                         : 'bg-gray-800 border-purple-800 text-gray-300 hover:bg-gray-700 hover:border-cyan-400'
                                 }`}
                             >
-                                <Flag code={lang.countryCode} className="w-5 h-5 mr-2 rounded-sm" />
+                                <ReactCountryFlag countryCode={lang.flagCode} className="w-5 h-5 mr-2 rounded-sm" svg />
                                 {lang.name}
                             </button>
                         ))}
