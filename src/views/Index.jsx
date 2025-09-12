@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import {useMusic} from "@/providers/MusicProvider.jsx";
 
 const Index = () => {
-    const [currentTrack, setCurrentTrack] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [activeSection, setActiveSection] = useState('home');
+
+    const { isPlaying, currentTrack, togglePlayPause } = useMusic()
 
     const mixes = [
         { id: 1, title: "Afro Cosmic Journey", duration: "58:22", plays: "24.5k" },
@@ -58,28 +58,24 @@ const Index = () => {
                     <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
                         <button
                             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full font-semibold text-lg flex items-center hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-                            onClick={() => setIsPlaying(!isPlaying)}
+                            onClick={togglePlayPause}
                         >
                             {isPlaying ? (
-                                <>
+                                <div className="uppercase flex items-center">
                                     <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    PAUSE
-                                </>
+                                    pause
+                                </div>
                             ) : (
-                                <>
+                                <div className="uppercase flex items-center">
                                     <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    ÉCOUTER
-                                </>
+                                    écouter
+                                </div>
                             )}
-                        </button>
-
-                        <button className="px-8 py-4 border border-cyan-400 text-cyan-400 rounded-full font-semibold text-lg hover:bg-cyan-400 hover:bg-opacity-10 transition-all hover:text-white hover:border-white">
-                            Voir les mixes
                         </button>
                     </div>
                 </div>

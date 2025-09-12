@@ -12,31 +12,34 @@ import ProtectedRoute from "@/components/routes/ProtectedRoute.jsx";
 import Dashboard from "@/views/admin/Dashboard.jsx";
 import AuthProvider from "@/providers/AuthProvider.jsx";
 import error404 from "@/views/errors/error404.jsx";
+import MusicProvider from "./providers/MusicProvider.jsx";
 
 const App = () => {
     return (
         <AuthProvider>
-            <BrowserRouter>
-                <div className="min-h-screen bg-black text-white overflow-x-hidden">
-                    <Routes>
-                        <Route path={`${import.meta.env.VITE_REACT_APP_BASE_URL}login`} element={<Login/>}/>
-                        <Route path={`${import.meta.env.VITE_REACT_APP_BASE_URL}`} element={<Layout/>}>
-                            <Route index element={<Index/>}/>
-                            <Route path="poems" element={<Poems/>}/>
-                            <Route path="about" element={<About/>}/>
-                            <Route path="events" element={<Events/>}/>
-                            <Route path="contact" element={<Contact/>}/>
+            <MusicProvider>
+                <BrowserRouter>
+                    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+                        <Routes>
+                            <Route path={`${import.meta.env.VITE_REACT_APP_BASE_URL}login`} element={<Login/>}/>
+                            <Route path={`${import.meta.env.VITE_REACT_APP_BASE_URL}`} element={<Layout/>}>
+                                <Route index element={<Index/>}/>
+                                <Route path="poems" element={<Poems/>}/>
+                                <Route path="about" element={<About/>}/>
+                                <Route path="events" element={<Events/>}/>
+                                <Route path="contact" element={<Contact/>}/>
 
-                            <Route path="admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
-                                <Route index element={<Navigate to="dashboard" replace />} />
-                                <Route path="dashboard" element={<Dashboard />} />
+                                <Route path="admin" element={<ProtectedRoute><AdminLayout/></ProtectedRoute>}>
+                                    <Route index element={<Navigate to="dashboard" replace/>}/>
+                                    <Route path="dashboard" element={<Dashboard/>}/>
+                                </Route>
+
+                                <Route path="*" element={<error404/>}/>
                             </Route>
-
-                            <Route path="*" element={<error404 />}/>
-                        </Route>
-                    </Routes>
-                </div>
-            </BrowserRouter>
+                        </Routes>
+                    </div>
+                </BrowserRouter>
+            </MusicProvider>
         </AuthProvider>
     );
 }

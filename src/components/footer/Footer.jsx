@@ -133,7 +133,7 @@ const Footer = () => {
                             {['home', 'poems', 'about', 'events', 'contact'].map((item) => (
                                 <li key={item}>
                                     <a
-                                        href={item === 'home' ? '/' : `/${item}`}
+                                        href={`${import.meta.env.VITE_REACT_APP_BASE_URL}${item === 'home' ? '' : `${item}`}`}
                                         className="text-gray-400 hover:text-cyan-400 transition-all flex items-center group"
                                     >
                                         <span
