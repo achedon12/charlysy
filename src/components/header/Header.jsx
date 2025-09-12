@@ -25,12 +25,10 @@ const Header = () => {
         <header>
             <nav className="fixed w-full z-50 bg-black bg-opacity-70 backdrop-blur-md py-4 px-8 border-b border-purple-900">
                 <div className="container mx-auto flex justify-between items-center">
-                    {/* Logo */}
                     <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400">
                         Charly <span className="text-yellow-400">Sy</span>
                     </div>
 
-                    {/* Navigation Desktop */}
                     <div className="hidden md:flex space-x-8">
                         {navigationItems.map((item) => (
                             <Link
@@ -45,7 +43,6 @@ const Header = () => {
                         ))}
                     </div>
 
-                    {/* Actions Desktop */}
                     <div className="hidden md:flex items-center space-x-4">
                         <FaCog
                             className="w-6 h-6 text-white hover:text-cyan-400 cursor-pointer transition-colors"
@@ -60,7 +57,6 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    {/* Menu Mobile Hamburger */}
                     <div className="md:hidden flex items-center space-x-4">
                         <FaCog
                             className="w-6 h-6 text-white hover:text-cyan-400 cursor-pointer transition-colors"
@@ -70,6 +66,7 @@ const Header = () => {
                             onClick={toggleMobileMenu}
                             className="text-white focus:outline-none"
                             aria-label="Toggle menu"
+                            name={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
                         >
                             {isMobileMenuOpen ? (
                                 <FaTimes className="w-6 h-6" />
@@ -80,7 +77,6 @@ const Header = () => {
                     </div>
                 </div>
 
-                {/* Menu Mobile */}
                 <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
                     <div className="container mx-auto py-4 px-4 bg-gray-900 bg-opacity-90 rounded-lg mt-4 border border-purple-800">
                         <div className="flex flex-col space-y-4">

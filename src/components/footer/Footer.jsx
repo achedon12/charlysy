@@ -203,7 +203,10 @@ const Footer = () => {
                                 className="flex-grow bg-gray-800 border border-purple-800 rounded-l-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                             />
                             <button
-                                className="bg-gradient-to-r from-purple-600 to-cyan-500 px-4 py-2 rounded-r-lg font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all">
+                                className="bg-gradient-to-r from-purple-600 to-cyan-500 px-4 py-2 rounded-r-lg font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+                                aria-label="Subscribe to newsletter"
+                                name="subscribe"
+                            >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                           d="M14 5l7 7m0 0l-7 7m7-7H3"/>
