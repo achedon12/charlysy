@@ -1,6 +1,16 @@
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
-import {FaFacebook, FaInstagram, FaLinkedin, FaSoundcloud, FaSpotify, FaTwitter} from "react-icons/fa";
+import {
+    FaCalendarAlt, FaEnvelope,
+    FaFacebook,
+    FaFeather,
+    FaHome, FaInfoCircle,
+    FaInstagram,
+    FaLinkedin,
+    FaSoundcloud,
+    FaSpotify,
+    FaTwitter
+} from "react-icons/fa";
 
 const Footer = () => {
     const socialLinks = [
@@ -129,16 +139,22 @@ const Footer = () => {
                             </svg>
                             NAVIGATION
                         </h3>
-                        <ul className="space-y-3">
-                            {['home', 'poems', 'about', 'events', 'contact'].map((item) => (
-                                <li key={item}>
+                        <ul className="grid grid-cols-2 gap-4">
+                            {[
+                                { id: 'home', label: t('header.home'), icon: <FaHome /> },
+                                { id: 'poems', label: t('header.poems'), icon: <FaFeather /> },
+                                { id: 'about', label: t('header.about'), icon: <FaInfoCircle /> },
+                                { id: 'events', label: t('header.events'), icon: <FaCalendarAlt /> },
+                                { id: 'contact', label: t('header.contact'), icon: <FaEnvelope /> },
+                            ].map((item, index) => (
+                                <li key={item.id} className={`flex items-center ${index >= 2 ? 'mt-2' : ''} ${item.id === 'contact' ? 'col-span-2 justify-center md:justify-start' : ''}`}>
                                     <a
-                                        href={`${import.meta.env.VITE_REACT_APP_BASE_URL}${item === 'home' ? '' : `${item}`}`}
-                                        className="text-gray-400 hover:text-cyan-400 transition-all flex items-center group"
+                                        href={`${import.meta.env.VITE_REACT_APP_BASE_URL}${item.id === 'home' ? '' : item.id}`}
+                                        className="flex items-center text-gray-400 hover:text-cyan-400 transition-all group"
+                                        aria-label={item.label}
                                     >
-                                        <span
-                                            className="w-2 h-2 bg-purple-500 rounded-full mr-3 group-hover:bg-cyan-400 transition-all"></span>
-                                        {t(`header.${item}`)}
+                                        <span className="text-lg mr-3 group-hover:text-cyan-400 transition-all">{item.icon}</span>
+                                        <span className="group-hover:underline">{item.label}</span>
                                     </a>
                                 </li>
                             ))}
@@ -202,7 +218,7 @@ const Footer = () => {
                         <p>© {currentYear} Charly SY. {t('footer.rights')}</p>
                     </div>
 
-                    <div className="flex items-center space-x-6">
+                    <div className="flex items-center space-x-6 mb-6 md:mb-0 text-center md:text-left">
                         <a href="#" className="text-gray-500 hover:text-cyan-400 text-sm transition-all">Mentions
                             légales</a>
                         <a href="#" className="text-gray-500 hover:text-cyan-400 text-sm transition-all">Politique de

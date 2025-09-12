@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import {useMusic} from "@/providers/MusicProvider.jsx";
 
 const Index = () => {
 
-    const { isPlaying, currentTrack, togglePlayPause } = useMusic()
+    const { isPlaying, togglePlayPause } = useMusic()
 
     const mixes = [
         { id: 1, title: "Afro Cosmic Journey", duration: "58:22", plays: "24.5k" },

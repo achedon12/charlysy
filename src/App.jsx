@@ -12,7 +12,11 @@ import ProtectedRoute from "@/components/routes/ProtectedRoute.jsx";
 import Dashboard from "@/views/admin/Dashboard.jsx";
 import AuthProvider from "@/providers/AuthProvider.jsx";
 import error404 from "@/views/errors/error404.jsx";
-import MusicProvider from "./providers/MusicProvider.jsx";
+import MusicProvider from "@/providers/MusicProvider.jsx";
+import AdminPoems from "@/views/admin/Poems.jsx";
+import AdminEvents from "@/views/admin/Events.jsx";
+import AdminAnalytics from "@/views/admin/Analytics.jsx";
+import AdminSettings from "@/views/admin/Settings.jsx";
 
 const App = () => {
     return (
@@ -32,6 +36,10 @@ const App = () => {
                                 <Route path="admin" element={<ProtectedRoute><AdminLayout/></ProtectedRoute>}>
                                     <Route index element={<Navigate to="dashboard" replace/>}/>
                                     <Route path="dashboard" element={<Dashboard/>}/>
+                                    <Route path="poems" element={<AdminPoems/>}/>
+                                    <Route path="events" element={<AdminEvents/>}/>
+                                    <Route path="analytics" element={<AdminAnalytics/>}/>
+                                    <Route path="settings" element={<AdminSettings/>}/>
                                 </Route>
 
                                 <Route path="*" element={<error404/>}/>

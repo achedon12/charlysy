@@ -43,12 +43,10 @@ const Dashboard = () => {
         return () => clearInterval(particleInterval);
     }, []);
 
-    // Fonction pour formater les nombres
     const formatNumber = (num) => {
         return new Intl.NumberFormat('fr-FR').format(num);
     };
 
-    // Fonction pour formater la monnaie
     const formatCurrency = (amount) => {
         return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(amount);
     };
@@ -56,27 +54,6 @@ const Dashboard = () => {
     return (
         <div className="min-h-screen bg-gray-950 text-white overflow-x-hidden">
             <div className="particle-container fixed inset-0 pointer-events-none z-0"></div>
-
-            <header className="bg-gray-900 bg-opacity-80 backdrop-blur-md border-b border-purple-900 p-4 fixed w-full z-10">
-                <div className="flex justify-between items-center">
-                    <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-400">
-                        🌌 ADMIN DASHBOARD
-                    </h1>
-                    <div className="flex items-center space-x-4">
-                        <button className="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-all">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg>
-                        </button>
-                        <div className="flex items-center space-x-2">
-                            <div className="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center">
-                                <span className="font-semibold">A</span>
-                            </div>
-                            <span className="text-sm">Admin</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
             <div className="pt-16 flex">
                 <main className="flex-1 p-6">
@@ -120,7 +97,7 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="col-span-1 lg:col-span-2 bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-purple-900 mb-8">
+                        <div className="col-span-3 lg:col-span-2 bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-purple-900 mb-8">
                             <div className="flex justify-between items-center mb-4">
                                 <h2 className="text-xl font-semibold text-yellow-400">Événements à venir</h2>
                                 <button className="bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg hover:bg-yellow-400 transition-all">
