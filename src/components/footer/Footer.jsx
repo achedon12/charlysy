@@ -123,7 +123,7 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center border border-purple-800 hover:border-cyan-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-cyan-500 transition-all duration-300 transform hover:scale-110 ${social.color}`}
-                                    aria-label={social.name}
+                                    aria-label={`Visit ${social.name}`}
                                 >
                                     {social.icon}
                                 </a>
@@ -177,7 +177,7 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`bg-gray-800 bg-opacity-50 rounded-lg p-3 border border-purple-800 hover:border-cyan-400 transition-all hover:transform hover:scale-105 flex items-center justify-center ${social.color}`}
-                                    aria-label={social.name}
+                                    aria-label={`Visit ${social.name}`}
                                 >
                                     {social.icon}
                                 </a>
@@ -214,16 +214,16 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-purple-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <div className="text-gray-500 text-sm mb-4 md:mb-0">
-                        <p>© {currentYear} Charly SY. {t('footer.rights')}</p>
+                    <div className="text-sm mb-4 md:mb-0">
+                        <p className="text-cyan-400">© {currentYear} Charly SY. {t('footer.rights')}</p>
                     </div>
 
                     <div className="flex items-center space-x-6 mb-6 md:mb-0 text-center md:text-left">
-                        <a href="#" className="text-gray-500 hover:text-cyan-400 text-sm transition-all">Mentions
+                        <a href="#" className="text-cyan-400 hover:text-cyan-400 text-sm transition-all">Mentions
                             légales</a>
-                        <a href="#" className="text-gray-500 hover:text-cyan-400 text-sm transition-all">Politique de
+                        <a href="#" className="text-cyan-400 hover:text-cyan-400 text-sm transition-all">Politique de
                             confidentialité</a>
-                        <a href="#" className="text-gray-500 hover:text-cyan-400 text-sm transition-all">Conditions
+                        <a href="#" className="text-cyan-400 hover:text-cyan-400 text-sm transition-all">Conditions
                             d'utilisation</a>
                     </div>
                 </div>

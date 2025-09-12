@@ -59,6 +59,8 @@ const Index = () => {
                         <button
                             className="px-8 py-4 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full font-semibold text-lg flex items-center hover:shadow-lg hover:shadow-purple-500/50 transition-all"
                             onClick={togglePlayPause}
+                            name={isPlaying ? "Pause music" : "Play music"}
+                            aria-label={isPlaying ? "Pause music" : "Play music"}
                         >
                             {isPlaying ? (
                                 <div className="uppercase flex items-center">
@@ -122,7 +124,12 @@ const Index = () => {
 
                                 <div className="flex justify-between items-center text-sm text-gray-400">
                                     <span>{mix.plays} plays</span>
-                                    <button className="text-cyan-400 hover:text-cyan-300 flex items-center">
+                                    <button
+                                        className="text-cyan-400 hover:text-cyan-300 flex items-center"
+                                        aria-label={`Download ${mix.title} mix`}
+                                        name={`Download ${mix.title} mix`}
+                                    >
+
                                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
