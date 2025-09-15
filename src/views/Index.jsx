@@ -149,7 +149,7 @@ const Index = () => {
                             <div className="rounded-full border-4 border-cyan-400 p-2 w-64 h-64 mx-auto">
                                 <div className="w-full h-full bg-gray-700 rounded-full overflow-hidden">
                                     <div className="w-full h-full bg-gradient-to-br from-purple-700 to-cyan-600 flex items-center justify-center">
-                                        <img src={`${import.meta.env.VITE_REACT_APP_BASE_URL}profile.png`} alt="Charly SY" className="w-full h-full object-cover" />
+                                        <img src={`${import.meta.env.VITE_REACT_APP_BASE_URL}profile.webp`} alt="Charly SY" className="w-full h-full object-cover" />
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@ const Bio = () => {
                         <div className="w-full h-64 bg-gray-700 rounded-lg overflow-hidden">
                             <div
                                 className="w-full h-full bg-gradient-to-br from-purple-700 to-cyan-600 flex items-center justify-center">
-                                <img src={`${import.meta.env.VITE_REACT_APP_BASE_URL}profile.png`} alt="Charly SY" className="object-cover w-full h-full"/>
+                                <img src={`${import.meta.env.VITE_REACT_APP_BASE_URL}profile.webp`} alt="Charly SY" className="object-cover w-full h-full"/>
                             </div>
                         </div>
                     </div>

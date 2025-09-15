@@ -93,7 +93,7 @@ const Footer = () => {
                             <div className="w-24 h-24 rounded-full border-4 border-cyan-400 p-1 relative">
                                 <div className="w-full h-full bg-gray-800 rounded-full overflow-hidden">
                                     <img
-                                        src={`${import.meta.env.VITE_REACT_APP_BASE_URL}profile.png`}
+                                        src={`${import.meta.env.VITE_REACT_APP_BASE_URL}profile.webp`}
                                         alt="Charly Sy"
                                         className="w-full h-full object-cover"
                                     />
