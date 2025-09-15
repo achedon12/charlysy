@@ -1,6 +1,6 @@
 import Header from "@/components/header/Header.jsx";
 import Footer from "@/components/footer/Footer.jsx";
-import {Outlet} from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import PlayerBar from "@/components/music/PlayerBar.jsx";
 
 const Layout = () => {
@@ -8,7 +8,9 @@ const Layout = () => {
         <>
             <Header />
             <PlayerBar />
-            <Outlet />
+            <main className="min-h-screen">
+                <Outlet />
+            </main>
             <Footer />
         </>
     );

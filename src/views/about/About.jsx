@@ -98,7 +98,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Stats Section */}
             <section className="py-16 px-4 relative z-10 bg-gradient-to-b from-black to-purple-900 to-20%">
                 <div className="container mx-auto max-w-5xl">
                     <h2 className="text-3xl font-bold mb-12 text-center">
@@ -124,7 +123,6 @@ const About = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
             <section className="py-16 px-4 relative z-10">
                 <div className="container mx-auto max-w-3xl text-center">
                     <h2 className="text-3xl font-bold mb-6">
