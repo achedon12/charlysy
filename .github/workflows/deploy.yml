@@ -8,10 +8,14 @@ on:
 permissions:
   contents: write
 
-jobs:
+defaults:
+  run:
+    working-directory: ./frontend
 
+jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
