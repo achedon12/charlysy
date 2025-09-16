@@ -8,13 +8,12 @@ on:
 permissions:
   contents: write
 
-defaults:
-  run:
-    working-directory: ./frontend
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
 
     steps:
       - name: Checkout code
