@@ -15,13 +15,11 @@ trait TimeStampTrait
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
     private ?DateTimeImmutable $updatedAt = null;
 
-    #[ORM\PrePersist]
     public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    #[ORM\PrePersist]
     public function setCreatedAt(DateTimeImmutable $date = new DateTimeImmutable()): static
     {
         $this->createdAt = $date;
@@ -41,10 +39,17 @@ trait TimeStampTrait
         return $this;
     }
 
-    public function __construct()
+    #[ORM\PrePersist]
+    public function onPrePersist(): void
     {
-        parent::__construct();
         $this->createdAt = new DateTimeImmutable();
+        $this->updatedAt = new DateTimeImmutable();
+    }
+
+    #[ORM\PreUpdate]
+    public function onPreUpdate(): void
+    {
+        $this->updatedAt = new DateTimeImmutable();
     }
 
 }

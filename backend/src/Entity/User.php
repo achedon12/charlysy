@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: '`user`')]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_PSEUDO', fields: ['pseudo'])]
+#[ORM\HasLifecycleCallbacks]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     use TimeStampTrait;
@@ -25,26 +26,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(type: 'string', length: 50)]
-    #[Assert\NotBlank]
+    #[Assert\NotBlank(message: 'Le prénom est obligatoire')]
     #[Assert\Length(min: 2, max: 50)]
     #[Groups(['user:read', 'user:write'])]
     private ?string $firstname = null;
 
     #[ORM\Column(type: 'string', length: 50)]
-    #[Assert\NotBlank]
+    #[Assert\NotBlank(message: 'Le nom est obligatoire')]
     #[Assert\Length(min: 2, max: 50)]
     #[Groups(['user:read', 'user:write'])]
     private ?string $lastname = null;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    #[Assert\NotBlank]
-    #[Assert\Email]
+    #[Assert\NotBlank(message: 'L\'email est obligatoire')]
+    #[Assert\Email(message: 'L\'email "{{ value }}" n\'est pas valide.')]
     #[Assert\Length(max: 180)]
     #[Groups(['user:read', 'user:write'])]
     private ?string $email = null;
 
     #[ORM\Column(type: 'string', length: 50, unique: true)]
-    #[Assert\NotBlank]
+    #[Assert\NotBlank(message: 'Le pseudo est obligatoire')]
     #[Assert\Length(min: 3, max: 50)]
     #[Assert\Regex(pattern: '/^[a-zA-Z0-9_]+$/', message: 'Le pseudo ne peut contenir que des lettres, chiffres et underscores')]
     #[Groups(['user:read', 'user:write'])]
@@ -55,6 +56,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string')]
     private ?string $password = null;
+
+    public function __construct()
+    {
+    }
 
     public function getId(): ?int
     {
